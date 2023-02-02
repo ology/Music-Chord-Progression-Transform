@@ -2,6 +2,7 @@ Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
     - Improve documentation.
+    - Add neative T transformations to numeric transforms.
 
 0.0103 2023-02-02 06:12:20
     - Improve documentation.
