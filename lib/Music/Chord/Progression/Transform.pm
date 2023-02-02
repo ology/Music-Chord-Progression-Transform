@@ -173,7 +173,7 @@ has max => (
   $allowed = $transform->allowed;
 
 The allowed transformations. Currently this is either C<T>
-(transposition), C<N> Neo-Riemann, or both.
+for transposition, C<N> for Neo-Riemannian, or both.
 
 Default: C<T N>
 
