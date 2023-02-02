@@ -77,6 +77,9 @@ has base_octave => (
 
 The quality or "flavor" of the initial chord.
 
+For Neo-Riemann operations, the quality must be either major (C<''>)
+or minor (C<m>). For transposition operations, anything goes.
+
 Please see the L<Music::Chord::Note> module for a list of the known
 chords, like C<m> for "minor" or C<7> for a 7th chord, etc.
 
