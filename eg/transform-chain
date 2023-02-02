@@ -71,12 +71,12 @@ sub bottom {
 
 sub top {
     my $transform = Music::Chord::Progression::Transform->new(
-        base_note   => $opt{note},
-        base_octave => $opt{octave},
-        base_scale  => $opt{scale},
-        transforms  => $opt{transforms},
-        max         => $opt{max},
-        verbose     => $opt{verbose},
+        base_note     => $opt{note},
+        base_octave   => $opt{octave},
+        chord_quality => $opt{quality},
+        transforms    => $opt{transforms},
+        max           => $opt{max},
+        verbose       => $opt{verbose},
     );
     my $chords = $transform->circular;
 
