@@ -98,7 +98,7 @@ has chord_quality => (
 
   $base_chord = $transform->base_chord;
 
-The chord given by the B<base_note>, B<base_octave>, and the
+The initial chord given by the B<base_note>, B<base_octave>, and the
 B<chord_quality>.
 
 =cut
@@ -138,8 +138,9 @@ has format => (
 
   $semitones = $transpose->semitones;
 
-The number of semitones of which a transposition transformation can be
-made.
+The number of positive and negative semitones for a transposition
+transformation.  That is, this is a +/- bound on the C<T>
+transformations.
 
 Default: C<7> (a perfect 5th)
 
@@ -155,7 +156,7 @@ has semitones => (
 
   $max = $transform->max;
 
-The maximum number of I<circular> transformations to make.
+The number of I<circular> transformations to make.
 
 Default: C<4>
 
