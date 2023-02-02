@@ -101,7 +101,7 @@ subtest circular => sub {
 subtest quality => sub {
     my $obj = new_ok $module => [
         chord_quality => '7',
-        transforms    => [qw(I T1 T2 T3)],
+        transforms    => [qw(I T1 T2 T-3)],
     ];
     my $got = $obj->generate;
     my $expect = 4;
