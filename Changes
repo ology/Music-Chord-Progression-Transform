@@ -1,6 +1,8 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+
+0.0101 2023-02-02 05:13:27
     - Make the "O" operation return to the original chord.
     - Make the "I" operation the identity - no transformation.
     - Improve documentation.
