@@ -22,6 +22,12 @@ subtest throws => sub {
     throws_ok { $module->new(max => -1) }
         qr/not a valid maximum/, 'bogus max';
 
+    throws_ok { $module->new(semitones => -1) }
+        qr/not a valid number of semitones/, 'bogus semitone';
+
+    throws_ok { $module->new(allowed => 'foo') }
+        qr/not valid/, 'bogus allowed';
+
     throws_ok { $module->new(transforms => 'foo') }
         qr/not a valid transform/, 'bogus transform';
 
