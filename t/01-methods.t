@@ -98,4 +98,17 @@ subtest circular => sub {
     is_deeply $got->[0], $expect, 'generated 0th chord';
 };
 
+subtest quality => sub {
+    my $obj = new_ok $module => [
+        chord_quality => '7',
+        transforms    => [qw(I T1 T2 T3)],
+    ];
+    my $got = $obj->generate;
+    my $expect = 4;
+    is @$got, $expect, "generated $expect chords";
+    no warnings qw(qw);
+    $expect = [qw(C4 E4 G4 A#4)];
+    is_deeply $got->[0], $expect, 'generated 0th chord';
+};
+
 done_testing();
