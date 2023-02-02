@@ -1,6 +1,8 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+
+0.0106 2023-02-02 12:03:28
     - Fix the eg/transform-chain program.
 
 0.0105 2023-02-02 09:53:12
