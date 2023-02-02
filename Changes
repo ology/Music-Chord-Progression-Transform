@@ -3,6 +3,7 @@ Revision history for Music-Chord-Progression-Transform
 {{$NEXT}}
     - Make the "O" operation return to the original chord.
     - Make the "I" operation the identity - no transformation.
+    - Improve documentation.
 
 0.0100 2023-02-02 04:36:16
     - Ported from both the NRO and T modules.
