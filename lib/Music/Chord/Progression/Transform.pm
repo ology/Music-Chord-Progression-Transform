@@ -2,7 +2,7 @@ package Music::Chord::Progression::Transform;
 
 # ABSTRACT: Generate transformed chord progressions
 
-our $VERSION = '0.0103';
+our $VERSION = '0.0104';
 
 use Moo;
 use strictures 2;
