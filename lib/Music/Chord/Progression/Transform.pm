@@ -381,7 +381,8 @@ sub _build_transform {
         my @transforms;
 
         if (grep { $_ eq 'T' } @{ $self->allowed }) {
-            push @transforms, (map { 'T' . $_ } 1 .. $self->semitones);
+            push @transforms, (map { 'T' . $_ } 1 .. $self->semitones);  # positive
+            push @transforms, (map { 'T-' . $_ } 1 .. $self->semitones); # negative
         }
         if (grep { $_ eq 'N' } @{ $self->allowed }) {
             my @alphabet = qw(P R L);
