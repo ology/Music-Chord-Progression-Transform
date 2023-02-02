@@ -23,10 +23,10 @@ with 'Music::PitchNum';
   use MIDI::Util qw(setup_score midi_format);
   use Music::Chord::Progression::Transform ();
 
-  my $transform = Music::Chord::Progression::Transform->new;
+  my $mcpt = Music::Chord::Progression::Transform->new;
 
-  my $chords = $transform->generate;
-  $chords = $transform->circular;
+  my $chords = $mcpt->generate;
+  $chords = $mcpt->circular;
 
   # render a midi file
   my $score = setup_score();
@@ -42,7 +42,7 @@ and Neo-Riemann chord progressions.
 
 =head2 base_note
 
-  $base_note = $transform->base_note;
+  $base_note = $mcpt->base_note;
 
 The initial C<isobase>, capitalized note on which the progression starts.
 
@@ -58,7 +58,7 @@ has base_note => (
 
 =head2 base_octave
 
-  $base_octave = $transform->base_octave;
+  $base_octave = $mcpt->base_octave;
 
 The initial note octave on which the progression starts.
 
@@ -74,7 +74,7 @@ has base_octave => (
 
 =head2 chord_quality
 
-  $chord_quality = $transform->chord_quality;
+  $chord_quality = $mcpt->chord_quality;
 
 The quality or "flavor" of the initial chord.
 
@@ -96,7 +96,7 @@ has chord_quality => (
 
 =head2 base_chord
 
-  $base_chord = $transform->base_chord;
+  $base_chord = $mcpt->base_chord;
 
 The initial chord given by the B<base_note>, B<base_octave>, and the
 B<chord_quality>.
@@ -119,7 +119,7 @@ sub _build_base_chord {
 
 =head2 format
 
-  $format = $transform->format;
+  $format = $mcpt->format;
 
 The format of the returned results, as either named C<ISO> notes or
 C<midinum> integers.
@@ -154,7 +154,7 @@ has semitones => (
 
 =head2 max
 
-  $max = $transform->max;
+  $max = $mcpt->max;
 
 The number of I<circular> transformations to make.
 
@@ -170,7 +170,7 @@ has max => (
 
 =head2 allowed
 
-  $allowed = $transform->allowed;
+  $allowed = $mcpt->allowed;
 
 The allowed transformations. Currently this is either C<T>
 for transposition, C<N> for Neo-Riemannian, or both.
@@ -187,7 +187,7 @@ has allowed => (
 
 =head2 transforms
 
-  $transforms = $transform->transforms;
+  $transforms = $mcpt->transforms;
 
 The array-reference of C<T#> transposed and Neo-Riemann
 transformations that define the chord progression.
@@ -217,7 +217,7 @@ has transforms => (
 
 =head2 verbose
 
-  $verbose = $transform->verbose;
+  $verbose = $mcpt->verbose;
 
 Show progress.
 
@@ -251,9 +251,9 @@ sub _build__mdt {
 
 =head2 new
 
-  $transform = Music::Chord::Progression::Transform->new; # use defaults
+  $mcpt = Music::Chord::Progression::Transform->new; # use defaults
 
-  $transform = Music::Chord::Progression::Transform->new( # override defaults
+  $mcpt = Music::Chord::Progression::Transform->new( # override defaults
     base_note     => 'Bb',
     base_octave   => 5,
     chord_quality => '7',
@@ -267,7 +267,7 @@ Create a new C<Music::Chord::Progression::Transform> object.
 
 =head2 generate
 
-  $chords = $transform->generate;
+  $chords = $mcpt->generate;
 
 Generate a I<linear> series of transformed chords.
 
@@ -309,7 +309,7 @@ sub generate {
 
 =head2 circular
 
-  $chords = $transform->circular;
+  $chords = $mcpt->circular;
 
 Generate a series of transformed chords based on a I<circular> list of
 transformations.
