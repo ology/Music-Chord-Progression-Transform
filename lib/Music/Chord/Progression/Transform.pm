@@ -24,6 +24,7 @@ with 'Music::PitchNum';
   use Music::Chord::Progression::Transform ();
 
   my $transform = Music::Chord::Progression::Transform->new;
+
   my $chords = $transform->generate;
   $chords = $transform->circular;
 
