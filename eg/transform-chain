@@ -43,7 +43,7 @@ GetOptions(\%opt,
     'verbose',
 ) or die("Error in command line arguments\n");
 
-if ($opt{transforms} =~ /[HILNOPRST]/) {
+if ($opt{transforms} !~ /^\d+$/) {
     $opt{transforms} = [ split /,/, $opt{transforms} ];
 }
 
