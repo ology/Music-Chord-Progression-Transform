@@ -40,7 +40,7 @@ subtest default => sub {
 
 subtest transform_array => sub {
     my $obj = new_ok $module => [
-        transforms => [qw(I P T2)],
+        transforms => [qw(O P T2)],
     ];
     my $got = $obj->generate;
     no warnings qw(qw);

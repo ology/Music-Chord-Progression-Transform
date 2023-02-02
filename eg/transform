@@ -13,7 +13,7 @@ my $octave     = shift || 4;
 my $quality    = shift || '';
 my $transforms = shift || 'P,L,R,P,L,R'; # giving an integer = random
 
-if ($transforms =~ /[HILNPRST]/) {
+if ($transforms =~ /[HILNOPRST]/) {
     $transforms = [ split /,/, $transforms ];
 }
 

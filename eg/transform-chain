@@ -27,7 +27,7 @@ my %opt = (
     note       => 'G',
     octave     => 4,
     quality    => '',
-    transforms => 'I,PRL,R,L,R,L,R', # mostly diatonic. integer = random
+    transforms => 'O,PRL,R,L,R,L,R', # mostly diatonic. integer = random
     bass       => 1,
     verbose    => 1,
 );
@@ -43,7 +43,7 @@ GetOptions(\%opt,
     'verbose',
 ) or die("Error in command line arguments\n");
 
-if ($opt{transforms} =~ /[HILNPRST]/) {
+if ($opt{transforms} =~ /[HILNOPRST]/) {
     $opt{transforms} = [ split /,/, $opt{transforms} ];
 }
 

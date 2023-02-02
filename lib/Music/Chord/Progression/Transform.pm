@@ -193,8 +193,9 @@ defined.
 For Neo-Riemann transformations, please see the
 L<Music::NeoRiemannianTonnetz> module for the allowed operations.
 
-Additionally the "non-transformation", C<I> is allowed to return the
-initial chord.
+Additionally the "non-transformation" operations, C<O> returns to the
+initial chord, and C<I> is the identity that leaves the current chord
+untouched.
 
 This can also be given as an integer, which defines the number of
 random transformations to perform.
@@ -254,7 +255,7 @@ sub _build__mdt {
     format        => 'midinum',
     max           => 12,
     allowed       => ['T'],
-    transforms    => [qw(I T1 T2 T3)],
+    transforms    => [qw(O T1 T2 T3)],
   );
 
 Create a new C<Music::Chord::Progression::Transform> object.
@@ -309,9 +310,10 @@ Generate a series of transformed chords based on a I<circular> list of
 transformations.
 
 This method defines movement over a circular list ("necklace") of
-chord transformations, including C<I> which means to "make no
-transformation." Starting at position zero, move forward or backward
-along the necklace, transforming the current chord.
+chord transformations, including C<O>, which means "return to the
+original chord", and C<I> which means to "make no transformation."
+Starting at position zero, move forward or backward along the
+necklace, transforming the current chord.
 
 =cut
 
@@ -393,7 +395,7 @@ sub _build_transform {
             }
         }
 
-        @t = ('I',
+        @t = ('O',
             map { $transforms[ int rand @transforms ] }
                 1 .. $self->transforms - 1
         );
@@ -407,8 +409,11 @@ sub _build_chord {
 
     my $chord;
 
-    if ($token =~ /^I$/) {
-        $chord = $pitches; # no transformation
+    if ($token =~ /^O$/) {
+        $chord = $pitches; # return to the original chord
+    }
+    elsif ($token =~ /^I$/) {
+        $chord = $notes; # no transformation
     }
     elsif ($token =~ /^T(-?\d+)$/) {
         my $semitones = $1;
