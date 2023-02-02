@@ -12,7 +12,7 @@ use Data::Dumper::Compact qw(ddc);
 use Music::NeoRiemannianTonnetz ();
 use Music::Chord::Note ();
 use Music::Chord::Namer qw(chordname);
-#use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(Music-MelodicDevice-Transposition); # local author libs
+use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(Music-MelodicDevice-Transposition); # local author libs
 use Music::MelodicDevice::Transposition ();
 use namespace::clean;
 
