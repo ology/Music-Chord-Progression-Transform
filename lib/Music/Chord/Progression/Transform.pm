@@ -191,8 +191,7 @@ The array-reference of C<T#> transposed and Neo-Riemann
 transformations that define the chord progression.
 
 The C<T#> transformations are a series of transposition operations,
-where the C<#> is a positive or negative number between +/-
-B<semitones>.
+where C<#> is a positive or negative number between +/- B<semitones>.
 
 For Neo-Riemann transformations, please see the
 L<Music::NeoRiemannianTonnetz> module for the allowed operations.
