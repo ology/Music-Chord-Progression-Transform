@@ -387,17 +387,25 @@ sub _build_transform {
             push @transforms, (map { 'T-' . $_ } 1 .. $self->semitones); # negative
         }
         if (grep { $_ eq 'N' } @{ $self->allowed }) {
-            my @alphabet = qw(P R L);
-            push @transforms, @alphabet;
-
-            my $iter = variations(\@alphabet, 2);
-            while (my $v = $iter->next) {
-                push @transforms, join('', @$v);
+            if ($self->chord_quality eq 7) {
+                @transforms = qw(
+                  S23 S32 S34 S43 S56 S65
+                  C32 C34 C65
+                );
             }
+            else {
+                my @alphabet = qw(P R L);
+                push @transforms, @alphabet;
 
-            $iter = variations(\@alphabet, 3);
-            while (my $v = $iter->next) {
-                push @transforms, join('', @$v);
+                my $iter = variations(\@alphabet, 2);
+                while (my $v = $iter->next) {
+                    push @transforms, join('', @$v);
+                }
+
+                $iter = variations(\@alphabet, 3);
+                while (my $v = $iter->next) {
+                    push @transforms, join('', @$v);
+                }
             }
         }
 
