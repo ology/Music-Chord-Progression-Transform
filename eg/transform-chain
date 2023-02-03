@@ -10,6 +10,7 @@ use warnings;
 # Example:
 # > perl transform-chain --r=1 --m=12 --bpm=90 --note=C --o=5 --t=O,P,T1,T-2,L,R --v
 # > perl transform-chain --r=2 --m=8 --bpm=110 --note=A --o=5 --q=m --t=8 --v
+# > perl transform-chain --r=1 --m=12 --bpm=100 --note=Bb --q=7 --t=8 --v
 # > perl transform-chain --r=4 --t=7 --nobass --v
 # > timidity %.mid
 
