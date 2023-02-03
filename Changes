@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Only taskify_tokens() for P, L, and R multiple operations.
 
 0.0109 2023-02-03 12:08:34
     - Fix logic error in the numeric transform routine.
