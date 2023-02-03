@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Handle 7th chord NROs for a numeric (random) transform.
 
 0.0107 2023-02-02 12:17:38
     - Improve documentation.
