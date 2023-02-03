@@ -434,7 +434,8 @@ sub _build_chord {
         $chord = $self->_mdt->transpose($semitones, $notes);
     }
     else {
-        my $task = $self->_nrt->taskify_tokens($token) if length $token > 1;
+        my $task = $self->_nrt->taskify_tokens($token)
+            if length $token > 1 && $token !~ /\d/;
         my $op = defined $task ? $task : $token;
 
         $chord = $self->_nrt->transform($op, $notes);
