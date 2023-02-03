@@ -388,7 +388,7 @@ sub _build_transform {
         }
         if (grep { $_ eq 'N' } @{ $self->allowed }) {
             if ($self->chord_quality eq 7) {
-                @transforms = qw(
+                push @transforms, qw(
                   S23 S32 S34 S43 S56 S65
                   C32 C34 C65
                 );
