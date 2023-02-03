@@ -98,7 +98,7 @@ subtest circular => sub {
     is_deeply $got->[0], $expect, 'generated 0th chord';
 };
 
-subtest quality => sub {
+subtest t_quality => sub {
     my $obj = new_ok $module => [
         chord_quality => '7',
         transforms    => [qw(I T1 T2 T-3)],
@@ -107,8 +107,21 @@ subtest quality => sub {
     my $expect = 4;
     is @$got, $expect, "generated $expect chords";
     no warnings qw(qw);
-    $expect = [qw(C4 E4 G4 A#4)];
-    is_deeply $got->[0], $expect, 'generated 0th chord';
+    $expect = [['C4','E4','G4','A#4'],['C#4','F4','G#4','B4'],['D#4','G4','A#4','C#5'],['C4','E4','G4','A#4']];
+    is_deeply $got, $expect, 'generate';
+};
+
+subtest nro_quality => sub {
+    my $obj = new_ok $module => [
+        chord_quality => '7',
+        transforms    => [qw(I C32 C34 C65)],
+    ];
+    my $got = $obj->generate;
+    my $expect = 4;
+    is @$got, $expect, "generated $expect chords";
+    no warnings qw(qw);
+    $expect = [['C4','E4','G4','A#4'],['C#4','E4','G4','A4'],['C4','E4','G4','A#4'],['C#4','E4','F#4','A#4']];
+    is_deeply $got, $expect, 'generate';
 };
 
 done_testing();
