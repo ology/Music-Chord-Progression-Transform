@@ -79,20 +79,20 @@ sub top {
         max           => $opt{max},
         verbose       => $opt{verbose},
     );
-    my $chords = $transform->circular;
+    my ($generated) = $transform->circular;
 
     # repeat though the chord progression
     for my $i (1 .. $opt{repeat}) {
         my $j = 0; # chord counter
 
-        for my $chord (@$chords) {
+        for my $chord (@$generated) {
             $j++;
 
             # add a midi formatted whole note to the score
             $score->n('wn', midi_format(@$chord));
 
             # select the lowest note of the final chord for the bass
-            if ($i >= $opt{repeat} && $j >= @$chords) {
+            if ($i >= $opt{repeat} && $j >= @$generated) {
                 push @bass, $chord->[0];
             }
             # otherwise pick any chord note

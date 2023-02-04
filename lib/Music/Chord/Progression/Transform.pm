@@ -24,12 +24,13 @@ with 'Music::PitchNum';
 
   my $prog = Music::Chord::Progression::Transform->new;
 
-  my $chords = $prog->generate;
-  $chords = $prog->circular;
+  my ($generated, $transforms, $chords) = $prog->generate;
+
+  ($generated, $transforms, $chords) = $prog->circular;
 
   # render a midi file
   my $score = setup_score();
-  $score->n('wn', midi_format(@$_)) for @$chords;
+  $score->n('wn', midi_format(@$_)) for @$generated;
   $score->write_score('transform.mid');
 
 =head1 DESCRIPTION
@@ -266,7 +267,7 @@ Create a new C<Music::Chord::Progression::Transform> object.
 
 =head2 generate
 
-  $chords = $prog->generate;
+  ($generated, $transforms, $chords) = $prog->generate;
 
 Generate a I<linear> series of transformed chords.
 
@@ -281,6 +282,7 @@ sub generate {
 
     $self->_initial_conditions(@transforms) if $self->verbose;
 
+    my @chords;
     my @generated;
     my $i = 0;
 
@@ -294,21 +296,24 @@ sub generate {
 
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
+        my $chord = chordname(@base);
+        push @chords, $chord;
+
         printf "%d. %s: %s   %s   %s\n",
             $i, $token,
             ddc($transformed), ddc(\@notes),
-            scalar chordname(@base)
+            $chord
             if $self->verbose;
 
         $notes = $transformed;
     }
 
-    return \@generated;
+    return \@generated, \@transforms, \@chords;
 }
 
 =head2 circular
 
-  $chords = $prog->circular;
+  ($generated, $transforms, $chords) = $prog->circular;
 
 Generate a series of transformed chords based on a I<circular> list of
 transformations.
@@ -330,6 +335,7 @@ sub circular {
 
     $self->_initial_conditions(@transforms) if $self->verbose;
 
+    my @chords;
     my @generated;
     my $posn = 0;
 
@@ -343,10 +349,13 @@ sub circular {
 
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
+        my $chord = chordname(@base);
+        push @chords, $chord;
+
         printf "%d. %s (%d): %s   %s   %s\n",
             $i, $token, $posn % @transforms,
             ddc($transformed), ddc(\@notes),
-            scalar chordname(@base)
+            $chord
             if $self->verbose;
 
         $notes = $transformed;
@@ -354,7 +363,7 @@ sub circular {
         $posn = int rand 2 ? $posn + 1 : $posn - 1;
     }
 
-    return \@generated;
+    return \@generated, \@transforms, \@chords;
 }
 
 sub _get_pitches {

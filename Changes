@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Make the generate() and circular() methods return more than just the genrated notes.
 
 0.0111 2023-02-03 23:08:18
     - Include O & I in the random transforms.

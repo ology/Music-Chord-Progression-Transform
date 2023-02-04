@@ -24,10 +24,10 @@ my $transform = Music::Chord::Progression::Transform->new(
     transforms    => $transforms,
     verbose       => 1,
 );
-my $chords = $transform->generate;
+my ($generated) = $transform->generate;
 
 my $score = setup_score(bpm => $bpm);
 
-$score->n('wn', midi_format(@$_)) for @$chords;
+$score->n('wn', midi_format(@$_)) for @$generated;
 
 $score->write_score("$0.mid");
