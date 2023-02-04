@@ -37,5 +37,7 @@ jobs:
         run: cpanm --notest Test::EOL Test::NoTabs Test::Pod Test::Pod::Coverage Pod::Coverage::TrustPod
       - name: Install deps
         run: cpanm --notest $(dzil listdeps --missing)
+      - name: Install more deps
+        run: cpanm --notest MIDI::Util
       - name: Test
         run: dzil test
