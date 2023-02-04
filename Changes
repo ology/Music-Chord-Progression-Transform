@@ -1,6 +1,8 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Include O & I in the random transforms.
+    - Do not force O to be in the 1st position of all random transforms.
 
 0.0110 2023-02-03 19:34:32
     - Only taskify_tokens() for P, L, and R multiple operations.
