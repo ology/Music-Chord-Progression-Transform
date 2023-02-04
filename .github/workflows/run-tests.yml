@@ -33,6 +33,8 @@ jobs:
         run: cpanm --notest Dist::Zilla
       - name: Install authordeps
         run: cpanm --notest $(dzil authordeps --missing)
+      - name: Install more authordeps
+        run: cpanm --notest Test::EOL Test::NoTabs Test::Pod Test::Pod::Coverage
       - name: Install deps
         run: cpanm --notest $(dzil listdeps --missing)
       - name: Test
