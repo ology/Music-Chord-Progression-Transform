@@ -379,7 +379,7 @@ sub _build_transform {
         @t = @{ $self->transforms };
     }
     elsif ($self->transforms =~ /^\d+$/) {
-        my @transforms;
+        my @transforms = qw(O I);
 
         if (grep { $_ eq 'T' } @{ $self->allowed }) {
             push @transforms, (map { 'T' . $_ } 1 .. $self->semitones);  # positive
@@ -408,10 +408,8 @@ sub _build_transform {
             }
         }
 
-        @t = ('O',
-            map { $transforms[ int rand @transforms ] }
-                1 .. $self->transforms - 1
-        );
+        @t = map { $transforms[ int rand @transforms ] }
+            1 .. $self->transforms - 1;
     }
 
     return @t;
