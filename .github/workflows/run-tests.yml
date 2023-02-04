@@ -30,6 +30,6 @@ jobs:
         with:
           perl-version: ${{ matrix.perl-version }}
       - run: perl Makefile.PL
-      - run: cpanm strictures
+      - run: cpanm --verbose --notest strictures
       - run: cpanm --installdeps --with-develop --notest .
       - run: make test
