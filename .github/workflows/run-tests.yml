@@ -29,15 +29,6 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-      - name: Install dzil
-        run: cpanm --notest Dist::Zilla
-      - name: Install authordeps
-        run: dzil authordeps --missing | cpanm --notest
-      - name: Install more authordeps
-        run: cpanm --notest Test::EOL Test::NoTabs Test::Pod Test::Pod::Coverage Pod::Coverage::TrustPod
-      - name: Install deps
-        run: dzil listdeps --missing | cpanm --notest
-      - name: Install more deps
-        run: cpanm --notest MIDI::Util
-      - name: Test
-        run: dzil test
+      - run: perl Makefile.PL
+      - run: cpanm --installdeps --with-develop --notest .
+      - run: make test
