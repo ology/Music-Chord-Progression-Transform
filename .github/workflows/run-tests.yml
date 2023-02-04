@@ -31,7 +31,9 @@ jobs:
           perl-version: ${{ matrix.perl-version }}
       - name: Install dzil
         run: cpanm --notest Dist::Zilla
+      - name: Install authordeps
+        run: cpanm --notest $(dzil authordeps --missing)
       - name: Install deps
-        run: cpanm --notest $(dzil listdeps authordeps --missing)
+        run: cpanm --notest $(dzil listdeps --missing)
       - name: Test
         run: dzil test
