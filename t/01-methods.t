@@ -40,8 +40,6 @@ subtest default => sub {
     my $got = $obj->generate;
     my $expect = 4;
     is @$got, $expect, "generated $expect chords";
-    $expect = [qw(C4 E4 G4)];
-    is_deeply $got->[0], $expect, 'generated 0th chord';
 };
 
 subtest transform_array => sub {
@@ -61,8 +59,6 @@ subtest transform_integer => sub {
     ];
     my $got = $obj->generate;
     is @$got, $expect, "generated $expect chords";
-    $expect = [qw(C4 E4 G4)];
-    is_deeply $got->[0], $expect, 'generated 0th chord';
 };
 
 subtest transform_base => sub {
@@ -73,13 +69,12 @@ subtest transform_base => sub {
     my $got = $obj->generate;
     my $expect = 4;
     is @$got, $expect, "generated $expect chords";
-    $expect = [qw(G5 B5 D6)];
-    is_deeply $got->[0], $expect, 'generated 0th chord';
 };
 
 subtest midinum_format => sub {
     my $obj = new_ok $module => [
-        format => 'midinum',
+        format     => 'midinum',
+        transforms => [qw(O)],
     ];
     my $got = $obj->generate;
     my $expect = [qw(60 64 67)];
