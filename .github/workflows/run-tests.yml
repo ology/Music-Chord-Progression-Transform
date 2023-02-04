@@ -32,6 +32,6 @@ jobs:
       - name: Install dzil
         run: cpanm --notest Dist::Zilla
       - name: Install deps
-        run: cpanm install --notest $(dzil listdeps authordeps --missing)
+        run: cpanm --notest $(dzil listdeps authordeps --missing)
       - name: Test
         run: dzil test
