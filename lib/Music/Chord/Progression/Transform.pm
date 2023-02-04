@@ -409,7 +409,7 @@ sub _build_transform {
         }
 
         @t = map { $transforms[ int rand @transforms ] }
-            1 .. $self->transforms - 1;
+            1 .. $self->transforms;
     }
 
     return @t;
