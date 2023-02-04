@@ -29,7 +29,5 @@ jobs:
         uses: shogo82148/actions-setup-perl@v1
         with:
           perl-version: ${{ matrix.perl-version }}
-      - name: Install dependencies
-        run: cpm install -g --no-test --show-build-log-on-failure $(dzil listdeps --author --missing)
       - name: Test
-        run: dzil test --all
+        run: cpanm --notest Dist::Zilla
