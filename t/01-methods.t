@@ -35,7 +35,7 @@ subtest throws => sub {
         qr/not a valid transform/, 'bogus transform';
 };
 
-subtest default => sub {
+subtest defaults => sub {
     my $obj = new_ok $module;
     my ($got) = $obj->generate;
     my $expect = 4;
