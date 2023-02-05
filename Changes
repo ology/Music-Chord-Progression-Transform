@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Fix the eg/* programs.
 
 0.0200 2023-02-04 14:03:13
     - Make the generate() and circular() methods return more than just the genrated notes.
