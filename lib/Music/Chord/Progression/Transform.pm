@@ -19,7 +19,6 @@ with 'Music::PitchNum';
 
 =head1 SYNOPSIS
 
-  use MIDI::Util qw(setup_score midi_format);
   use Music::Chord::Progression::Transform ();
 
   my $prog = Music::Chord::Progression::Transform->new;
@@ -28,7 +27,8 @@ with 'Music::PitchNum';
 
   ($generated, $transforms, $chords) = $prog->circular;
 
-  # render a midi file
+  # midi
+  use MIDI::Util qw(setup_score midi_format);
   my $score = setup_score();
   $score->n('wn', midi_format(@$_)) for @$generated;
   $score->write_score('transform.mid');
