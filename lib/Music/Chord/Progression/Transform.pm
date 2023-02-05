@@ -30,7 +30,7 @@ with 'Music::PitchNum';
   # midi
   use MIDI::Util qw(setup_score midi_format);
   my $score = setup_score();
-  $score->n('wn', midi_format(@$_)) for @$generated;
+  $score->n('wn', @$_) for midi_format(@$generated);
   $score->write_score('transform.mid');
 
 =head1 DESCRIPTION
