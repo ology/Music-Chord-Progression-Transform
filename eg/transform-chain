@@ -17,7 +17,7 @@ use warnings;
 use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Util Music-Chord-Progression-Transform Music-MelodicDevice-Transposition); # local author libs
 
 use Getopt::Long qw(GetOptions);
-use MIDI::Util qw(setup_score midi_format);
+use MIDI::Util qw(setup_score);
 use Music::Chord::Progression::Transform ();
 use Music::MelodicDevice::Transposition ();
 
@@ -66,7 +66,7 @@ sub bottom {
     my $transposed = $md->transpose(-24, \@bass);
 
     for my $note (@$transposed) {
-        $score->n('wn', midi_format($note));
+        $score->n('wn', $note);
     }
 }
 
@@ -77,6 +77,7 @@ sub top {
         chord_quality => $opt{quality},
         transforms    => $opt{transforms},
         max           => $opt{max},
+        format        => 'midinum',
         verbose       => $opt{verbose},
     );
     my ($generated) = $transform->circular;
@@ -89,7 +90,7 @@ sub top {
             $j++;
 
             # add a midi formatted whole note to the score
-            $score->n('wn', midi_format(@$chord));
+            $score->n('wn', @$chord);
 
             # select the lowest note of the final chord for the bass
             if ($i >= $opt{repeat} && $j >= @$generated) {
