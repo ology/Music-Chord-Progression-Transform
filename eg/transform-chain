@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-# Use a circular list ("necklace") of Neo-Riemannian transformations.
+# Use a circular list ("necklace") of chord transformations.
 # Starting at position zero, move forward or backward along the necklace,
 # transforming the current chord, and render the resulting progression as MIDI.
 
