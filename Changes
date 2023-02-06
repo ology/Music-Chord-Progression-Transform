@@ -2,6 +2,7 @@ Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
     - Handle the naming of the diminished chord.
+    - What is a "-6" chord? Who knows?
 
 0.0204 2023-02-06 00:00:25
     - Handle more chordname wackiness. :\
