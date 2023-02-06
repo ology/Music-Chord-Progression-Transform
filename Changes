@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Do not allow spaces in chord names.
 
 0.0202 2023-02-05 20:58:24
     - Improve documentation.
