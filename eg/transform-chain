@@ -2,10 +2,9 @@
 use strict;
 use warnings;
 
-# Use a circular list ("necklace") of Neo-Riemannian transformations,
-# plus "I" meaning "make no transformation." Starting at position zero,
-# move forward or backward along the necklace, transforming the
-# current chord, and render the resulting progression as MIDI.
+# Use a circular list ("necklace") of Neo-Riemannian transformations.
+# Starting at position zero, move forward or backward along the necklace,
+# transforming the current chord, and render the resulting progression as MIDI.
 
 # Example:
 # > perl transform-chain --r=1 --m=12 --bpm=90 --note=C --o=5 --t=O,P,T1,T-2,L,R --v
