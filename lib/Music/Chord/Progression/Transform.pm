@@ -101,6 +101,8 @@ has chord_quality => (
 The initial chord given by the B<base_note>, B<base_octave>, and the
 B<chord_quality>.
 
+This is a computed, not a constructor attribute.
+
 =cut
 
 has base_chord => (
