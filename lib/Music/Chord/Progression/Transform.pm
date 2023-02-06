@@ -106,7 +106,8 @@ This is a computed, not a constructor attribute.
 =cut
 
 has base_chord => (
-    is => 'lazy',
+    is       => 'lazy',
+    init_arg => undef,
 );
 
 sub _build_base_chord {
