@@ -318,14 +318,11 @@ sub generate {
 
   ($generated, $transforms, $chords) = $prog->circular;
 
-Generate a series of transformed chords based on a I<circular> list of
-transformations.
+Generate a I<circular> series of transformed chords.
 
 This method defines movement over a circular list ("necklace") of
-chord transformations, including C<O>, which means "return to the
-original chord", and C<I> which means to "make no transformation."
-Starting at position zero, move forward or backward along the
-necklace, transforming the current chord.
+chord transformations.  Starting at position zero, move forward or
+backward along the necklace, transforming the current chord.
 
 =cut
 
