@@ -301,6 +301,7 @@ sub generate {
 
         my $chord = chordname(@base);
         $chord =~ s/\s+//;
+        $chord =~ s/-6/6/;
         $chord =~ s/o/dim/;
         $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
         push @chords, $chord;
