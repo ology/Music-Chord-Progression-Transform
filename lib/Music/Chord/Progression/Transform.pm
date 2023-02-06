@@ -300,6 +300,7 @@ sub generate {
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
         my $chord = chordname(@base);
+        $chord =~ s/\s+//;
         push @chords, $chord;
 
         printf "%d. %s: %s   %s   %s\n",
