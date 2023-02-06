@@ -201,9 +201,9 @@ where C<#> is a positive or negative number between +/- B<semitones>.
 For Neo-Riemann transformations, please see the
 L<Music::NeoRiemannianTonnetz> module for the allowed operations.
 
-Additionally the "non-transformation" operations are included: C<O>
-returns to the initial chord, and C<I> is the identity that leaves the
-current chord untouched.
+Additionally the following "non-transformation" operations are
+included: C<O> returns to the initial chord, and C<I> is the identity
+that leaves the current chord untouched.
 
 This can also be given as an integer, which defines the number of
 random transformations to perform.
