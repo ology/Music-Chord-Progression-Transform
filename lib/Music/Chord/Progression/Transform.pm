@@ -301,6 +301,7 @@ sub generate {
 
         my $chord = chordname(@base);
         $chord =~ s/\s+//;
+        $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
         push @chords, $chord;
 
         printf "%d. %s: %s   %s   %s\n",
