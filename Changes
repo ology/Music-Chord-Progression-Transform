@@ -1,6 +1,9 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Handle the naming of the diminished chord.
+
+0.0204 2023-02-06 00:00:25
     - Handle more chordname wackiness. :\
 
 0.0203 2023-02-05 23:47:39
