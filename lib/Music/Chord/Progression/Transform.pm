@@ -305,12 +305,15 @@ sub generate {
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
         my $chord = chordname(@base);
-        # fix mangled chordnames
+        # fix mangled/unknown chordnames
         $chord =~ s/\s+//;
         $chord =~ s/o/dim/;
         $chord =~ s/maj/M/;
         $chord =~ s/sus7/7sus4/;
         $chord =~ s/7adda5/7(#5)/;
+        $chord =~ s/7addb2/7(b9,13)/;
+        $chord =~ s/9add13/7(9,13)/;
+        $chord =~ s/7addm10/7(#9)/;
         $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
         push @chords, $chord;
 
