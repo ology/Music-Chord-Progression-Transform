@@ -48,7 +48,8 @@ and Neo-Riemann chord progressions.
 
   $base_note = $prog->base_note;
 
-The initial C<isobase>, capitalized note on which the progression starts.
+The initial C<isobase>, capitalized note on which the progression
+starts (but may be immediately transformed by the first operation).
 
 Default: C<C>
 
