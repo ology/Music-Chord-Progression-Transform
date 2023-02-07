@@ -183,7 +183,7 @@ has max => (
 The allowed transformations. Currently this is either C<T>
 for transposition, C<N> for Neo-Riemannian, or both.
 
-Default: C<T N>
+Default: C<T,N>
 
 =cut
 
