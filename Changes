@@ -1,6 +1,8 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+
+0.0302 2023-02-07 00:56:29
     - Handle more chord name issues.
 
 0.0301 2023-02-06 16:40:41
