@@ -304,18 +304,7 @@ sub generate {
 
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
-        my $chord = chordname(@base);
-        # fix mangled/unknown chordnames
-        $chord =~ s/\s+//;
-        $chord =~ s/o/dim/;
-        $chord =~ s/maj/M/;
-        $chord =~ s/sus7/7sus4/;
-        $chord =~ s/7adda5/7(#5)/;
-        $chord =~ s/7addb2/7(b9,13)/;
-        $chord =~ s/9add13/7(9,13)/;
-        $chord =~ s/7addm10/7(#9)/;
-        # ...and there are probably more to come...
-        $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
+        my $chord = _sanitize_chordname(@base);
         push @chords, $chord;
 
         printf "%d. %s: %s   %s   %s\n",
@@ -365,7 +354,7 @@ sub circular {
 
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
-        my $chord = chordname(@base);
+        my $chord = _sanitize_chordname(@base);
         push @chords, $chord;
 
         printf "%d. %s (%d): %s   %s   %s\n",
@@ -380,6 +369,26 @@ sub circular {
     }
 
     return \@generated, \@transforms, \@chords;
+}
+
+sub _sanitize_chordname {
+    my (@notes) = @_;
+
+    my $chord = chordname(@notes);
+
+    # fix mangled/unknown chordnames
+    $chord =~ s/\s+//;
+    $chord =~ s/o/dim/;
+    $chord =~ s/maj/M/;
+    $chord =~ s/sus7/7sus4/;
+    $chord =~ s/7adda5/7(#5)/;
+    $chord =~ s/7addb2/7(b9,13)/;
+    $chord =~ s/9add13/7(9,13)/;
+    $chord =~ s/7addm10/7(#9)/;
+    $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
+    # ...and there are probably more to come...
+
+    return $chord;
 }
 
 sub _get_pitches {
