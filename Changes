@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Improve documentation.
 
 0.0300 2023-02-06 16:24:21
     - Change the default format from ISO to midinum.
