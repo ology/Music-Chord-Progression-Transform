@@ -329,7 +329,7 @@ sub generate {
 
 Generate a I<circular> series of transformed chords.
 
-This method defines movement over a circular list ("necklace") of
+This method defines movement around a circular list ("necklace") of
 chord transformations.  Starting at position zero, move forward or
 backward along the necklace, transforming the current chord.
 
