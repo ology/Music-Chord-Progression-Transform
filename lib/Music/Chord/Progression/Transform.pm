@@ -28,9 +28,9 @@ with 'Music::PitchNum';
   ($generated, $transforms, $chords) = $prog->circular;
 
   # midi
-  use MIDI::Util qw(setup_score midi_format);
+  use MIDI::Util qw(setup_score);
   my $score = setup_score();
-  $score->n('wn', @$_) for midi_format(@$generated);
+  $score->n('wn', @$_) for @$generated;
   $score->write_score('transform.mid');
 
 =head1 DESCRIPTION
@@ -127,14 +127,14 @@ sub _build_base_chord {
 The format of the returned results, as either named C<ISO> notes or
 C<midinum> integers.
 
-Default: C<ISO>
+Default: C<midinum>
 
 =cut
 
 has format => (
     is      => 'ro',
     isa     => sub { croak "$_[0] is not a valid format" unless $_[0] =~ /^(?:ISO|midinum)$/ },
-    default => sub { 'ISO' },
+    default => sub { 'midinum' },
 );
 
 =head2 semitones
