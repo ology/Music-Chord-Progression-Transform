@@ -23,6 +23,10 @@ with 'Music::PitchNum';
 
   my $prog = Music::Chord::Progression::Transform->new;
 
+  $prog = Music::Chord::Progression::Transform->new(
+    transforms => [qw(L R P R S)],
+  );
+
   my ($generated, $transforms, $chords) = $prog->generate;
 
   ($generated, $transforms, $chords) = $prog->circular;
@@ -259,8 +263,8 @@ sub _build__mdt {
   $prog = Music::Chord::Progression::Transform->new( # override defaults
     base_note     => 'Bb',
     base_octave   => 5,
-    chord_quality => '7',
-    format        => 'midinum',
+    chord_quality => '7b5',
+    format        => 'ISO',
     max           => 12,
     allowed       => ['T'],
     transforms    => [qw(O T1 T2 T3)],
