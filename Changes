@@ -1,6 +1,7 @@
 Revision history for Music-Chord-Progression-Transform
 
 {{$NEXT}}
+    - Handle the naming of the M<#>/maj<#> chord.
 
 0.0301 2023-02-06 16:40:41
     - Improve documentation.
