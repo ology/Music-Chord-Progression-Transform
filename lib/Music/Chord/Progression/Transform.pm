@@ -314,6 +314,7 @@ sub generate {
         $chord =~ s/7addb2/7(b9,13)/;
         $chord =~ s/9add13/7(9,13)/;
         $chord =~ s/7addm10/7(#9)/;
+        # ...and there are probably more to come...
         $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
         push @chords, $chord;
 
