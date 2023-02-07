@@ -308,6 +308,8 @@ sub generate {
         $chord =~ s/\s+//;
         $chord =~ s/o/dim/;
         $chord =~ s/maj/M/;
+        $chord =~ s/sus7/7sus4/;
+        $chord =~ s/7adda5/7(#5)/;
         $chord = $1 . $2 if $chord =~ /^(.+)\/(\d+)$/;
         push @chords, $chord;
 
