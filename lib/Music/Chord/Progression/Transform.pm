@@ -305,6 +305,7 @@ sub generate {
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
         my $chord = chordname(@base);
+        # fix mangled chordnames
         $chord =~ s/\s+//;
         $chord =~ s/o/dim/;
         $chord =~ s/maj/M/;
