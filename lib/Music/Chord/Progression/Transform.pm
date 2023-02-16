@@ -24,7 +24,7 @@ with 'Music::PitchNum';
   my $prog = Music::Chord::Progression::Transform->new;
 
   $prog = Music::Chord::Progression::Transform->new(
-    transforms => [qw(L R P R S)],
+    transforms => [qw(L R P T6 R S T-6)],
   );
 
   my ($generated, $transforms, $chords) = $prog->generate;
