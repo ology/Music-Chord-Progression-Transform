@@ -284,8 +284,10 @@ Generate a I<linear> series of transformed chords.
 sub generate {
     my ($self) = @_;
 
+    # get the pitch-nums of the base_chord - static and mutable
     my ($pitches, $notes) = $self->_get_pitches;
 
+    # get either the defined transformations or a random set
     my @transforms = $self->_build_transform;
 
     $self->_initial_conditions(@transforms) if $self->verbose;
@@ -297,11 +299,13 @@ sub generate {
     for my $token (@transforms) {
         $i++;
 
+        # perform the transformation
         my $transformed = $self->_build_chord($token, $pitches, $notes);
 
-        my @notes = map { $self->pitchname($_) } @$transformed;
+        my @notes = map { $self->pitchname($_) } @$transformed; # for ISO
         my @base = map { s/^([A-G][#b]?)\d/$1/r } @notes; # for chord-name
 
+        # tally what has been generated
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
         my $chord = _sanitize_chordname(@base);
@@ -335,8 +339,10 @@ backward along the necklace, transforming the current chord.
 sub circular {
     my ($self) = @_;
 
+    # get the pitch-nums of the base_chord - static and mutable
     my ($pitches, $notes) = $self->_get_pitches;
 
+    # get either the defined transformations or a random set
     my @transforms = $self->_build_transform;
 
     $self->_initial_conditions(@transforms) if $self->verbose;
@@ -348,11 +354,13 @@ sub circular {
     for my $i (1 .. $self->max) {
         my $token = $transforms[ $posn % @transforms ];
 
+        # perform the transformation
         my $transformed = $self->_build_chord($token, $pitches, $notes);
 
-        my @notes = map { $self->pitchname($_) } @$transformed;
+        my @notes = map { $self->pitchname($_) } @$transformed; # for ISO
         my @base = map { s/^([A-G][#b]?)\d/$1/r } @notes; # for chord-name
 
+        # tally what has been generated
         push @generated, $self->format eq 'ISO' ? \@notes : $transformed;
 
         my $chord = _sanitize_chordname(@base);
