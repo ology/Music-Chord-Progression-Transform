@@ -363,6 +363,7 @@ sub circular {
             $chord
             if $self->verbose;
 
+        # "increment" our pitches
         $notes = $transformed;
 
         # move left or right at random
