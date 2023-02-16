@@ -313,6 +313,7 @@ sub generate {
             $chord
             if $self->verbose;
 
+        # "increment" our pitches
         $notes = $transformed;
     }
 
