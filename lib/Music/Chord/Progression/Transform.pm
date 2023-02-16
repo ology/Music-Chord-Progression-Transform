@@ -365,6 +365,7 @@ sub circular {
 
         $notes = $transformed;
 
+        # move left or right at random
         $posn = int rand 2 ? $posn + 1 : $posn - 1;
     }
 
