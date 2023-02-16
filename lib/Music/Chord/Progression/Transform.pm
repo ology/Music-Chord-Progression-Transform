@@ -51,7 +51,7 @@ and Neo-Riemann chord progressions.
 The initial C<isobase>, capitalized note on which the progression
 starts (but may be immediately transformed by the first operation).
 
-Default: C<C>
+Default: C<C> (but may be C#, Db, etc.)
 
 =cut
 
