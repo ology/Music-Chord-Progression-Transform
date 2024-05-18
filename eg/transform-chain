@@ -70,8 +70,8 @@ sub bottom {
     my $md = Music::MelodicDevice::Transposition->new;
     my $transposed = $md->transpose(-24, \@bass);
 
-    for my $note (@$transposed) {
-        $score->n($opt{duration}, $note);
+    for my $pitch (@$transposed) {
+        $score->n($opt{duration}, $pitch);
     }
 }
 
