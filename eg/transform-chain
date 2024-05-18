@@ -27,6 +27,7 @@ my %opt = (
     note       => 'G',
     octave     => 4,
     quality    => '',
+    duration   => 'wn',
     transforms => 'O,PRL,R,L,R,L,R', # mostly diatonic. integer = random
     bass       => 1,
     verbose    => 1,
@@ -38,6 +39,7 @@ GetOptions(\%opt,
     'note=s',
     'octave=i',
     'quality=s',
+    'duration=s',
     'transforms=s',
     'bass!',
     'verbose',
@@ -65,7 +67,7 @@ sub bottom {
     my $transposed = $md->transpose(-24, \@bass);
 
     for my $note (@$transposed) {
-        $score->n('wn', $note);
+        $score->n($opt{duration}, $note);
     }
 }
 
@@ -88,7 +90,7 @@ sub top {
             $j++;
 
             # add a midi formatted whole note to the score
-            $score->n('wn', @$chord);
+            $score->n($opt{duration}, @$chord);
 
             # select the lowest note of the final chord for the bass
             if ($i >= $opt{repeat} && $j >= @$generated) {
