@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use lib map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Util Music-Chord-Progression-Transform); # local author libs
+use if $ENV{USER} eq "gene", lib => map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Util Music-Chord-Progression-Transform); # local author libs
 
 use MIDI::Util qw(setup_score midi_format);
 use Music::Chord::Progression::Transform ();
