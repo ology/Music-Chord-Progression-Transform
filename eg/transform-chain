@@ -13,7 +13,6 @@ use warnings;
 # > perl transform-chain --r=4 --t=7 --nobass --v
 # > timidity %.mid
 
-use if $ENV{USER} eq "gene", lib => map { "$ENV{HOME}/sandbox/$_/lib" } qw(MIDI-Util Music-Chord-Progression-Transform Music-MelodicDevice-Transposition); # local author libs
 
 use Getopt::Long qw(GetOptions);
 use MIDI::Util qw(setup_score);
